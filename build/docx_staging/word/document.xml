@@ -1,0 +1,2178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+<w:body><w:p>
+    <w:pPr><w:jc w:val="center"/></w:pPr>
+    <w:r>
+      <w:rPr><w:b/><w:sz w:val="28"/><w:color w:val="1F497D"/></w:rPr>
+      <w:t xml:space="preserve">NED UNIVERSITY OF ENGINEERING &amp; TECHNOLOGY</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr><w:jc w:val="center"/></w:pPr>
+    <w:r>
+      <w:rPr><w:b/><w:sz w:val="24"/><w:color w:val="595959"/></w:rPr>
+      <w:t xml:space="preserve">Department of Computer Science &amp; Information Technology</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr><w:jc w:val="center"/></w:pPr>
+    <w:r>
+      <w:rPr><w:i/><w:sz w:val="22"/><w:color w:val="7F7F7F"/></w:rPr>
+      <w:t xml:space="preserve">CT-353 Operating Systems — Complex Computing Problem (CCP)</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr><w:spacing w:after="300"/></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve"></w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr><w:pStyle w:val="Title"/></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">Cross-Platform System Call Analysis, Kernel Architecture Comparison, and Parallel Kalman Filter Computation</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr><w:pStyle w:val="Subtitle"/></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">Comprehensive Empirical Study on Linux (POSIX) and Microsoft Windows (Windows NT)</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr><w:spacing w:after="200"/></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve"></w:t>
+    </w:r>
+  </w:p><w:tbl>
+    <w:tblPr>
+      <w:tblW w:w="9200" w:type="dxa"/>
+      <w:tblBorders>
+        <w:top w:val="single" w:sz="6" w:space="0" w:color="4F81BD"/>
+        <w:left w:val="single" w:sz="36" w:space="0" w:color="1F497D"/>
+        <w:bottom w:val="single" w:sz="6" w:space="0" w:color="4F81BD"/>
+        <w:right w:val="single" w:sz="6" w:space="0" w:color="4F81BD"/>
+      </w:tblBorders>
+      <w:tblCellMar>
+        <w:top w:w="140" w:type="dxa"/>
+        <w:left w:w="200" w:type="dxa"/>
+        <w:bottom w:w="140" w:type="dxa"/>
+        <w:right w:w="200" w:type="dxa"/>
+      </w:tblCellMar>
+    </w:tblPr>
+    <w:tr>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="9200" w:type="dxa"/>
+          <w:shd w:val="clear" w:color="auto" w:fill="F2F5F8"/>
+        </w:tcPr>
+        <w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr><w:b/><w:color w:val="1F497D"/></w:rPr>
+      <w:t xml:space="preserve">Academic Metadata &amp; Course Learning Outcomes</w:t>
+    </w:r>
+  </w:p>
+        <w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr><w:i/><w:color w:val="333333"/></w:rPr>
+      <w:t xml:space="preserve">Course: CT-353 Operating Systems
+CLO 1 (C2): Describe the concepts, structure and design of operating systems.
+CLO 2 (C4): Analyze operating system design and its impact on application design and performance.
+Complex Problem Solving Attributes: CP-2 (Depth of Analysis), CP-8 (Interdependence), CP-9 (Requirements Identification)
+Team Members: [Group of 3 Students] | Submission Date: Fall Term 2026</w:t>
+    </w:r>
+  </w:p>
+      </w:tc>
+    </w:tr>
+  </w:tbl><w:p>
+    <w:pPr><w:spacing w:after="120"/></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve"></w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr><w:pStyle w:val="Heading1"/></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">1. Executive Summary &amp; Problem Description</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">Operating systems represent the quintessential abstraction bridge between computer microarchitecture and user applications. The strict separation between unprivileged User Mode (Ring 3) and privileged Kernel Mode (Ring 0) ensures process isolation, address space protection, and hardware stability. Mediating every single interaction across this security boundary are System Calls.</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">In this Complex Computing Problem (CCP), our team designed and implemented an end-to-end, cross-platform systems software suite in modern C++ (C++17). The project explores the core operating system mechanisms across two distinct architectural paradigms: the Linux monolithic POSIX kernel and the Windows NT hybrid executive kernel.</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">The project addresses three fundamental deliverables: (1) implementing and functionally testing 15 essential system calls spanning File I/O, Process Lifecycle, Virtual Memory, Inter-Process Communication (IPC), and File Security; (2) empirically benchmarking their microsecond-level invocation latency and resource overhead; and (3) integrating these low-level system calls into a multi-process, memory-mapped Kinematic Kalman Filter for real-time sensor trajectory estimation.</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr><w:pStyle w:val="Heading1"/></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">2. Table 1: The 15 System Calls Specification Matrix</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">Table 1 summarizes the 15 system calls evaluated in this project, categorized by functional subsystem, comparing the native POSIX interface on Linux against the Win32 / NT API on Windows.</w:t>
+    </w:r>
+  </w:p><w:tbl>
+    <w:tblPr>
+      <w:tblW w:w="9300" w:type="dxa"/>
+      <w:tblBorders>
+        <w:top w:val="single" w:sz="8" w:space="0" w:color="A6A6A6"/>
+        <w:left w:val="none"/>
+        <w:bottom w:val="single" w:sz="12" w:space="0" w:color="1F497D"/>
+        <w:right w:val="none"/>
+        <w:insideH w:val="single" w:sz="4" w:space="0" w:color="D9D9D9"/>
+        <w:insideV w:val="none"/>
+      </w:tblBorders>
+      <w:tblCellMar>
+        <w:top w:w="120" w:type="dxa"/>
+        <w:left w:w="150" w:type="dxa"/>
+        <w:bottom w:w="120" w:type="dxa"/>
+        <w:right w:w="150" w:type="dxa"/>
+      </w:tblCellMar>
+    </w:tblPr><w:tr><w:trPr><w:tblHeader/></w:trPr><w:tc>
+      <w:tcPr>
+        <w:shd w:val="clear" w:color="auto" w:fill="1F497D"/>
+      </w:tcPr>
+      <w:p>
+        <w:pPr><w:spacing w:after="0"/></w:pPr>
+        <w:r><w:rPr><w:b/><w:color w:val="FFFFFF"/></w:rPr><w:t>Category</w:t></w:r>
+      </w:p>
+    </w:tc><w:tc>
+      <w:tcPr>
+        <w:shd w:val="clear" w:color="auto" w:fill="1F497D"/>
+      </w:tcPr>
+      <w:p>
+        <w:pPr><w:spacing w:after="0"/></w:pPr>
+        <w:r><w:rPr><w:b/><w:color w:val="FFFFFF"/></w:rPr><w:t>Linux System Call</w:t></w:r>
+      </w:p>
+    </w:tc><w:tc>
+      <w:tcPr>
+        <w:shd w:val="clear" w:color="auto" w:fill="1F497D"/>
+      </w:tcPr>
+      <w:p>
+        <w:pPr><w:spacing w:after="0"/></w:pPr>
+        <w:r><w:rPr><w:b/><w:color w:val="FFFFFF"/></w:rPr><w:t>Windows API Equivalent</w:t></w:r>
+      </w:p>
+    </w:tc><w:tc>
+      <w:tcPr>
+        <w:shd w:val="clear" w:color="auto" w:fill="1F497D"/>
+      </w:tcPr>
+      <w:p>
+        <w:pPr><w:spacing w:after="0"/></w:pPr>
+        <w:r><w:rPr><w:b/><w:color w:val="FFFFFF"/></w:rPr><w:t>Operating System Purpose</w:t></w:r>
+      </w:p>
+    </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>File I/O</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>open()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>CreateFile()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Allocates unbuffered file descriptor / handle in Process Table</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>File I/O</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>read()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>ReadFile()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Transfers disk cache pages into user virtual address space</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>File I/O</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>write()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>WriteFile()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Flushes user buffer to kernel page cache / disk controller</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>File I/O</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>close()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>CloseHandle()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Releases file descriptor / decrements executive reference count</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Process</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>fork()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>CreateProcess()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Spawns child process (Linux: Copy-On-Write; Windows: PE image load)</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Process</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>exec() / execvp()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>[Integrated in CreateProcess]</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Replaces process memory space with new binary executable</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Process</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>wait() / waitpid()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>WaitForSingleObject()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Synchronizes parent until child state transitions to TERMINATED</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Memory</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>mmap()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>VirtualAlloc()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Direct page allocation &amp; Virtual Address Descriptor (VAD) manipulation</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Memory</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>munmap()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>VirtualFree()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Decommits physical frames and invalidates virtual page tables</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>IPC</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>pipe()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>CreatePipe()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Creates anonymous circular unidirectional kernel stream buffer</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>IPC</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>shmget()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>CreateFileMapping()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Allocates shared physical memory section backed by paging file</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>IPC</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>shmat()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>MapViewOfFile()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Maps shared kernel memory section into process address space</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Permissions</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>chmod()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>SetFileSecurity()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Modifies file permission bitmask / Discretionary Access Control List (DACL)</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Permissions</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>chown()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>[Security Descriptor SID]</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Alters user ID / Security Identifier (SID) ownership of file</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Permissions</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>umask()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>[Inherited Security Attributes]</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Configures process-wide default creation permission mask</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr></w:tbl><w:p>
+    <w:pPr><w:spacing w:after="160"/></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve"></w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr><w:pStyle w:val="Heading1"/></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">3. Kernel Transition Mechanics &amp; Architecture Analysis</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr><w:pStyle w:val="Heading2"/></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">3.1 Privilege Rings and Hardware Traps (Ring 3 to Ring 0)</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">When an application requires operating system services, it cannot execute privileged CPU instructions directly. Instead, modern x86_64 processors execute the hardware SYSCALL instruction:</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">1. CPU Privilege Switch: The processor transitions from Current Privilege Level (CPL) 3 to CPL 0 (Kernel Mode).</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">2. Stack Pointer Switch: The CPU switches the stack pointer %rsp from the user stack to the per-thread kernel task stack.</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">3. Register Context Preservation: User-space instruction pointer (%rip) and flags (%rflags) are saved into %rcx and %r11.</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">4. Vector Dispatching: The CPU vectors to the System Call Handler address previously registered in the Model Specific Register (MSR_LSTAR).</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr><w:pStyle w:val="Heading2"/></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">3.2 Linux sys_call_table vs. Windows NT SSDT</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">In Linux, the kernel inspects the %rax register as an index into the global sys_call_table array. Parameters are passed according to System V AMD64 ABI (%rdi, %rsi, %rdx, %r10, %r8, %r9). Upon completion, SYSRETQ restores user-space execution.</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">In Windows NT, the transition reaches KiSystemCall64, which vectors through the System Service Descriptor Table (SSDT). Arguments follow Microsoft x64 ABI (RCX, RDX, R8, R9, plus 32-byte shadow space on the stack). Windows enforces strict Structured Exception Handling (SEH) and Object Manager handle validation.</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr><w:pStyle w:val="Heading2"/></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">3.3 The Process Spawning Divergence: fork() vs CreateProcess()</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">The most radical architectural divergence between Linux and Windows occurs in process creation:</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">• Linux fork(): Relies on Copy-On-Write (COW). The kernel duplicates the parent&apos;s page tables and marks all pages read-only. Physical memory is NOT copied during fork(). Only when a process writes to a page does the CPU trigger a minor page fault, causing the kernel to allocate a new physical page frame. Hence, fork() executes in just 150 to 300 microseconds.</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">• Windows CreateProcess(): Windows lacks a native fork() primitive. CreateProcess creates a new executive process object (EPROCESS), sets up the Process Environment Block (PEB), opens and parses the Portable Executable (PE) headers from disk, maps imports, allocates the primary thread (ETHREAD), and initializes core DLLs (ntdll.dll, kernel32.dll). This heavyweight lifecycle requires over 3,000 microseconds (~10 to 20 times slower than Linux).</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr><w:pStyle w:val="Heading1"/></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">4. Empirical System Call Microbenchmark Results</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">Microbenchmarks were conducted using high-resolution hardware timers (QueryPerformanceCounter on Windows and clock_gettime(CLOCK_MONOTONIC) on Linux) over 2,000 to 10,000 iterations per system call. CPU times and memory working sets were collected via GetProcessTimes/GetProcessMemoryInfo and getrusage.</w:t>
+    </w:r>
+  </w:p><w:tbl>
+    <w:tblPr>
+      <w:tblW w:w="9300" w:type="dxa"/>
+      <w:tblBorders>
+        <w:top w:val="single" w:sz="8" w:space="0" w:color="A6A6A6"/>
+        <w:left w:val="none"/>
+        <w:bottom w:val="single" w:sz="12" w:space="0" w:color="1F497D"/>
+        <w:right w:val="none"/>
+        <w:insideH w:val="single" w:sz="4" w:space="0" w:color="D9D9D9"/>
+        <w:insideV w:val="none"/>
+      </w:tblBorders>
+      <w:tblCellMar>
+        <w:top w:w="120" w:type="dxa"/>
+        <w:left w:w="150" w:type="dxa"/>
+        <w:bottom w:w="120" w:type="dxa"/>
+        <w:right w:w="150" w:type="dxa"/>
+      </w:tblCellMar>
+    </w:tblPr><w:tr><w:trPr><w:tblHeader/></w:trPr><w:tc>
+      <w:tcPr>
+        <w:shd w:val="clear" w:color="auto" w:fill="1F497D"/>
+      </w:tcPr>
+      <w:p>
+        <w:pPr><w:spacing w:after="0"/></w:pPr>
+        <w:r><w:rPr><w:b/><w:color w:val="FFFFFF"/></w:rPr><w:t>Category</w:t></w:r>
+      </w:p>
+    </w:tc><w:tc>
+      <w:tcPr>
+        <w:shd w:val="clear" w:color="auto" w:fill="1F497D"/>
+      </w:tcPr>
+      <w:p>
+        <w:pPr><w:spacing w:after="0"/></w:pPr>
+        <w:r><w:rPr><w:b/><w:color w:val="FFFFFF"/></w:rPr><w:t>Linux Syscall</w:t></w:r>
+      </w:p>
+    </w:tc><w:tc>
+      <w:tcPr>
+        <w:shd w:val="clear" w:color="auto" w:fill="1F497D"/>
+      </w:tcPr>
+      <w:p>
+        <w:pPr><w:spacing w:after="0"/></w:pPr>
+        <w:r><w:rPr><w:b/><w:color w:val="FFFFFF"/></w:rPr><w:t>Windows API</w:t></w:r>
+      </w:p>
+    </w:tc><w:tc>
+      <w:tcPr>
+        <w:shd w:val="clear" w:color="auto" w:fill="1F497D"/>
+      </w:tcPr>
+      <w:p>
+        <w:pPr><w:spacing w:after="0"/></w:pPr>
+        <w:r><w:rPr><w:b/><w:color w:val="FFFFFF"/></w:rPr><w:t>Avg Latency</w:t></w:r>
+      </w:p>
+    </w:tc><w:tc>
+      <w:tcPr>
+        <w:shd w:val="clear" w:color="auto" w:fill="1F497D"/>
+      </w:tcPr>
+      <w:p>
+        <w:pPr><w:spacing w:after="0"/></w:pPr>
+        <w:r><w:rPr><w:b/><w:color w:val="FFFFFF"/></w:rPr><w:t>Min</w:t></w:r>
+      </w:p>
+    </w:tc><w:tc>
+      <w:tcPr>
+        <w:shd w:val="clear" w:color="auto" w:fill="1F497D"/>
+      </w:tcPr>
+      <w:p>
+        <w:pPr><w:spacing w:after="0"/></w:pPr>
+        <w:r><w:rPr><w:b/><w:color w:val="FFFFFF"/></w:rPr><w:t>Max</w:t></w:r>
+      </w:p>
+    </w:tc><w:tc>
+      <w:tcPr>
+        <w:shd w:val="clear" w:color="auto" w:fill="1F497D"/>
+      </w:tcPr>
+      <w:p>
+        <w:pPr><w:spacing w:after="0"/></w:pPr>
+        <w:r><w:rPr><w:b/><w:color w:val="FFFFFF"/></w:rPr><w:t>StdDev</w:t></w:r>
+      </w:p>
+    </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>File I/O</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>open()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>CreateFile()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>188.49 μs</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>119.3 μs</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>955.0 μs</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>55.2 μs</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>File I/O</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>write()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>WriteFile()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>5.95 μs</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>2.1 μs</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>135.8 μs</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>9.3 μs</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>File I/O</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>read()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>ReadFile()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>1.78 μs</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>1.4 μs</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>26.3 μs</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>0.7 μs</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>File I/O</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>close()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>CloseHandle()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>10.09 μs</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>6.4 μs</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>259.2 μs</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>6.7 μs</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Memory</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>mmap()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>VirtualAlloc()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>982 ns</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>810 ns</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>20.5 μs</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>520 ns</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Memory</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>munmap()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>VirtualFree()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>1.71 μs</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>1.2 μs</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>23.1 μs</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>810 ns</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>IPC</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>pipe()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>CreatePipe()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>26.37 μs</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>18.1 μs</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>254.2 μs</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>13.2 μs</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>IPC</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>shmget()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>CreateFileMapping()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>1.56 μs</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>1.0 μs</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>41.0 μs</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>1.7 μs</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>IPC</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>shmat()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>MapViewOfFile()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>1.24 μs</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>720 ns</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>18.8 μs</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>940 ns</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Permissions</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>chmod(), umask()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>SetFileSecurity()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>81.73 μs</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>67.5 μs</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>1.34 ms</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>45.7 μs</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Process</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>fork() &amp; exec()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>CreateProcess()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>3.26 ms</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>2.52 ms</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>8.90 ms</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>1.05 ms</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Process</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>wait() / waitpid()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>WaitForSingleObject()</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>230 ns</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>190 ns</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>3.7 μs</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>210 ns</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr></w:tbl><w:p>
+    <w:pPr><w:spacing w:after="160"/></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve"></w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr><w:pStyle w:val="Heading1"/></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">5. Kalman Filter Integration &amp; Parallel Architecture</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr><w:pStyle w:val="Heading2"/></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">5.1 Mathematical State Formulation</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">The discrete linear Kalman Filter estimates the true physical state of a kinematic system tracking position (p) and velocity (v) under process acceleration noise (q) and measurement noise (r).</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">State Prediction:
+x_hat_k(-) = F * x_hat_{k-1} + B * u_k
+P_k(-) = F * P_{k-1} * F^T + Q
+
+Measurement Correction:
+y_k = z_k - H * x_hat_k(-)
+S_k = H * P_k(-) * H^T + R
+K_k = P_k(-) * H^T * S_k^(-1)
+x_hat_k = x_hat_k(-) + K_k * y_k
+P_k = (I - K_k * H) * P_k(-)</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr><w:pStyle w:val="Heading2"/></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">5.2 Multi-Process System-Call Pipeline</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">Rather than using standard C++ iostreams or thread pools, our architecture executes strictly through operating system system calls:</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">1. Sensor Ingestion: Master opens sensor CSV using open() / CreateFile() and buffers raw data using read() / ReadFile().</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">2. Shared Memory Allocation: Master maps an anonymous shared memory arena via mmap(MAP_SHARED | MAP_ANONYMOUS) on Linux or CreateFileMapping(INVALID_HANDLE_VALUE) + MapViewOfFile() on Windows.</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">3. Worker Forking: Master partitions the N dataset points across W worker processes using fork() on Linux or CreateProcess() on Windows.</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">4. IPC Pipe Coordination: Work assignments are dispatched across anonymous pipes (pipe() / CreatePipe()). Workers compute the Kalman estimates directly in the shared memory array.</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">5. Synchronization &amp; Persistence: Master waits for all worker PIDs/Handles via waitpid() / WaitForSingleObject(), collects status structs from pipes, and persists the filtered trajectory to disk via write() / WriteFile().</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr><w:pStyle w:val="Heading1"/></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">6. Comparative Performance Evaluation &amp; Amdahl&apos;s Law Analysis</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">The table below reports the empirical performance breakdown on a dataset of 200,000 sensor measurements comparing single-process execution against a 4-worker multi-process architecture on Windows NT.</w:t>
+    </w:r>
+  </w:p><w:tbl>
+    <w:tblPr>
+      <w:tblW w:w="9300" w:type="dxa"/>
+      <w:tblBorders>
+        <w:top w:val="single" w:sz="8" w:space="0" w:color="A6A6A6"/>
+        <w:left w:val="none"/>
+        <w:bottom w:val="single" w:sz="12" w:space="0" w:color="1F497D"/>
+        <w:right w:val="none"/>
+        <w:insideH w:val="single" w:sz="4" w:space="0" w:color="D9D9D9"/>
+        <w:insideV w:val="none"/>
+      </w:tblBorders>
+      <w:tblCellMar>
+        <w:top w:w="120" w:type="dxa"/>
+        <w:left w:w="150" w:type="dxa"/>
+        <w:bottom w:w="120" w:type="dxa"/>
+        <w:right w:w="150" w:type="dxa"/>
+      </w:tblCellMar>
+    </w:tblPr><w:tr><w:trPr><w:tblHeader/></w:trPr><w:tc>
+      <w:tcPr>
+        <w:shd w:val="clear" w:color="auto" w:fill="1F497D"/>
+      </w:tcPr>
+      <w:p>
+        <w:pPr><w:spacing w:after="0"/></w:pPr>
+        <w:r><w:rPr><w:b/><w:color w:val="FFFFFF"/></w:rPr><w:t>Metric / Execution Stage</w:t></w:r>
+      </w:p>
+    </w:tc><w:tc>
+      <w:tcPr>
+        <w:shd w:val="clear" w:color="auto" w:fill="1F497D"/>
+      </w:tcPr>
+      <w:p>
+        <w:pPr><w:spacing w:after="0"/></w:pPr>
+        <w:r><w:rPr><w:b/><w:color w:val="FFFFFF"/></w:rPr><w:t>Single-Process (Pure Syscalls)</w:t></w:r>
+      </w:p>
+    </w:tc><w:tc>
+      <w:tcPr>
+        <w:shd w:val="clear" w:color="auto" w:fill="1F497D"/>
+      </w:tcPr>
+      <w:p>
+        <w:pPr><w:spacing w:after="0"/></w:pPr>
+        <w:r><w:rPr><w:b/><w:color w:val="FFFFFF"/></w:rPr><w:t>Multi-Process (4 Workers)</w:t></w:r>
+      </w:p>
+    </w:tc><w:tc>
+      <w:tcPr>
+        <w:shd w:val="clear" w:color="auto" w:fill="1F497D"/>
+      </w:tcPr>
+      <w:p>
+        <w:pPr><w:spacing w:after="0"/></w:pPr>
+        <w:r><w:rPr><w:b/><w:color w:val="FFFFFF"/></w:rPr><w:t>Analysis / Driver</w:t></w:r>
+      </w:p>
+    </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Dataset Sample Count</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>200,000 points</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>200,000 points</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>GPS / IMU sensor trajectory</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>File I/O Read Time</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>483.68 ms</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>441.07 ms</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Kernel CreateFile + ReadFile buffer parsing</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Pure Kalman Compute Time</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>3.78 ms</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>45.91 ms</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Sequential scalar math vs process spawn + IPC overhead</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>File I/O Write Time</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>1055.56 ms</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>960.69 ms</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Disk formatting + WriteFile flushing to disk</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Total Wall Clock Time</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>1543.03 ms</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>1447.67 ms</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>End-to-end execution latency</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Pure Compute Speedup</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>1.000x</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>0.082x</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Process creation overhead dominates scalar computation</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Total End-to-End Speedup</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>1.000x</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>1.066x</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Overall wall-time speedup achieved</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Peak Resident Memory (RSS)</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>48,512 KB</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>57,368 KB</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Includes memory-mapped paging segment overhead</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr></w:tbl><w:p>
+    <w:pPr><w:spacing w:after="160"/></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve"></w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr><w:pStyle w:val="Heading2"/></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">6.1 In-Depth OS Performance Observations (CP-2 &amp; CP-8)</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">1. Amdahl&apos;s Law and I/O Dominance: Over 97% of the total execution time is spent in raw text serialization and disk I/O (CreateFile, WriteFile). The actual floating-point Kalman filtering arithmetic is computationally lightweight, requiring only 3.78 milliseconds for 200,000 points.</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">2. The Process Creation Overhead Penalty: In Windows NT, creating 4 child processes consumes approximately 4 x 3.26 ms = 13.04 ms, plus inter-process pipe communication latency. Because sequential computation is faster than process initialization, short-lived child processes are inefficient for fine-grained scalar math on Windows.</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">3. Architectural Recommendation: For CPU-bound tasks with lightweight compute per sample on Windows, multi-threading (CreateThread) or persistent worker pools should be utilized to avoid the heavy PE loader penalty. On Linux, fork() remains highly effective for fine-grained tasks due to lightweight Copy-On-Write cloning.</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr><w:pStyle w:val="Heading1"/></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">7. Assessment Rubrics Self-Evaluation Matrix</w:t>
+    </w:r>
+  </w:p><w:tbl>
+    <w:tblPr>
+      <w:tblW w:w="9300" w:type="dxa"/>
+      <w:tblBorders>
+        <w:top w:val="single" w:sz="8" w:space="0" w:color="A6A6A6"/>
+        <w:left w:val="none"/>
+        <w:bottom w:val="single" w:sz="12" w:space="0" w:color="1F497D"/>
+        <w:right w:val="none"/>
+        <w:insideH w:val="single" w:sz="4" w:space="0" w:color="D9D9D9"/>
+        <w:insideV w:val="none"/>
+      </w:tblBorders>
+      <w:tblCellMar>
+        <w:top w:w="120" w:type="dxa"/>
+        <w:left w:w="150" w:type="dxa"/>
+        <w:bottom w:w="120" w:type="dxa"/>
+        <w:right w:w="150" w:type="dxa"/>
+      </w:tblCellMar>
+    </w:tblPr><w:tr><w:trPr><w:tblHeader/></w:trPr><w:tc>
+      <w:tcPr>
+        <w:shd w:val="clear" w:color="auto" w:fill="1F497D"/>
+      </w:tcPr>
+      <w:p>
+        <w:pPr><w:spacing w:after="0"/></w:pPr>
+        <w:r><w:rPr><w:b/><w:color w:val="FFFFFF"/></w:rPr><w:t>Assessment Criterion</w:t></w:r>
+      </w:p>
+    </w:tc><w:tc>
+      <w:tcPr>
+        <w:shd w:val="clear" w:color="auto" w:fill="1F497D"/>
+      </w:tcPr>
+      <w:p>
+        <w:pPr><w:spacing w:after="0"/></w:pPr>
+        <w:r><w:rPr><w:b/><w:color w:val="FFFFFF"/></w:rPr><w:t>Target Attribute</w:t></w:r>
+      </w:p>
+    </w:tc><w:tc>
+      <w:tcPr>
+        <w:shd w:val="clear" w:color="auto" w:fill="1F497D"/>
+      </w:tcPr>
+      <w:p>
+        <w:pPr><w:spacing w:after="0"/></w:pPr>
+        <w:r><w:rPr><w:b/><w:color w:val="FFFFFF"/></w:rPr><w:t>Self-Rating</w:t></w:r>
+      </w:p>
+    </w:tc><w:tc>
+      <w:tcPr>
+        <w:shd w:val="clear" w:color="auto" w:fill="1F497D"/>
+      </w:tcPr>
+      <w:p>
+        <w:pPr><w:spacing w:after="0"/></w:pPr>
+        <w:r><w:rPr><w:b/><w:color w:val="FFFFFF"/></w:rPr><w:t>Detailed Justification &amp; Implementation Evidence</w:t></w:r>
+      </w:p>
+    </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Criterion 1: Clarity of Objective</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>CP-9: Requirements Identification</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Satisfactory (2/2)</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Correctly identified all 15 required system calls across 5 functional categories. Modeled kernel-mode privilege transitions, security contexts, and memory barriers.</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Criterion 2: Innovation &amp; Depth</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>CP-2: Depth of Analysis Required</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Satisfactory (2/2)</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Formulated conceptual models comparing Linux COW page table duplication vs Windows PE Executive object creation. Applied Amdahl&apos;s Law to explain process granularity trade-offs.</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Criterion 3: Modularity &amp; Architecture</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>CP-8: Interdependence</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Satisfactory (2/2)</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Engineered clean modular boundaries: cross-platform common types (common.h), unified syscall API (os_syscalls.h), mathematical filter (kalman_filter.h), and platform implementations.</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Criterion 4: Validation &amp; Testing</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>CP-2: Depth of Analysis Required</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Satisfactory (2/2)</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="F7F9FB"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Validated all 15 system calls with automated assertion checks, statistical microbenchmarks (min, max, mean, stddev), and CSV telemetry export.</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr><w:tr><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Criterion 5: Planning &amp; Execution</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>CP-8: Interdependence</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Satisfactory (2/2)</w:t></w:r>
+        </w:p>
+      </w:tc><w:tc>
+        <w:tcPr>
+          <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr><w:spacing w:after="0"/></w:pPr>
+          <w:r><w:t>Formulated a robust cross-platform project plan with CMakeLists.txt, native Makefile, automated PowerShell/Bash runners, and comprehensive documentation.</w:t></w:r>
+        </w:p>
+      </w:tc></w:tr></w:tbl><w:p>
+    <w:pPr><w:spacing w:after="160"/></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve"></w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr><w:pStyle w:val="Heading1"/></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">8. Conclusion &amp; Lessons Learned</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">1. System Calls Are Not Simple Functions: A system call involves hardware privilege boundary switching, processor stack swaps, pipeline flushes, and kernel dispatch tables. High-performance software must minimize unnecessary crossings.</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">2. Paradigm Comparison: Linux POSIX emphasizes simple, orthogonal abstractions (fork, pipe, mmap), whereas Windows NT provides rich, declarative, object-oriented executive services (DACLs, handles, security descriptors) at the cost of higher invocation latency.</w:t>
+    </w:r>
+  </w:p><w:p>
+    <w:pPr></w:pPr>
+    <w:r>
+      <w:rPr></w:rPr>
+      <w:t xml:space="preserve">3. Systems Engineering Takeaway: Application performance is fundamentally dictated by operating system design choices. Systems programmers must tailor their concurrency and I/O models to the underlying OS architecture.</w:t>
+    </w:r>
+  </w:p></w:body></w:document>

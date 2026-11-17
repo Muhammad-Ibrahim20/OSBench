@@ -1,0 +1,13 @@
+Category,Linux_Syscall,Windows_API,Purpose,Iterations,Avg_Latency_ns,Min_Latency_ns,Max_Latency_ns,StdDev_ns,Total_Wall_ms,User_CPU_ms,Sys_CPU_ms,Peak_RSS_KB
+File I/O,"open()","CreateFile()","File handle creation/open",500,200590,97300,705700,80848.8,118.354,31.25,93.75,5268
+File I/O,"write()","WriteFile()","Raw buffer disk write",500,4657.8,2100,75900,7263.79,2.3459,0,0,5268
+File I/O,"read()","ReadFile()","Raw buffer disk read",500,3160.2,1300,741000,33051,1.7074,0,0,5268
+File I/O,"close()","CloseHandle()","Handle/FD deallocation",500,6853.6,5900,152000,6785.79,3.4459,0,0,5268
+Memory,"mmap()","VirtualAlloc()","Virtual page allocation",500,824.4,500,6900,675.015,0.4285,0,0,5272
+Memory,"munmap()","VirtualFree()","Virtual page release",500,1488.6,900,8300,496.88,0.7604,0,0,5276
+IPC,"pipe()","CreatePipe()","Anonymous IPC pipe creation",500,4651.4,4200,25600,1391.21,3.667,0,0,5280
+IPC,"shmget()","CreateFileMapping()","Shared memory handle creation",500,1339.8,1000,22000,1112.51,1.1574,0,15.625,5280
+IPC,"shmat()","MapViewOfFile()","Attach shared memory section",500,935.2,700,8300,604.881,1.0241,0,0,5280
+Permissions,"chmod(), chown(), umask()","SetFileSecurity()","Modify file access security",500,59638.6,44600,209200,17128.8,29.8538,0,31.25,5280
+Process,"fork() & exec()","CreateProcess()","Heavyweight process creation",50,2.20587e+06,1.8682e+06,3.1423e+06,264581,492.982,15.625,78.125,5300
+Process,"wait() / waitpid()","WaitForSingleObject()","Process synchronization & exit wait",500,271,200,2100,299.231,0.1556,0,0,5300
